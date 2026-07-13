@@ -1,0 +1,97 @@
+```
+                 +-------------------------------------------------------------+
+                 |          [1] SOURCE SYSTEM DISCOVERY & ASSESSMENT           |
+                 |  • Relational DBs   • REST APIs   • Streaming   • Cloud Storage|
+                 +------------------------------+------------------------------+
+                                                |
+                                                v
++---------------------------------------------------------------------------------------------+
+|                                [2] METADATA REPOSITORY DESIGN                               |
+|   • Source_System_Config   • Dataset_Config   • Ingestion_Config     • Schema_Config        |
+|   • Data_Quality_Config    • Workflow_Config  • Notification_Config  • Audit_Execution_Log  |
++----------------------------------------------+----------------------------------------------+
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                          [5] DATABRICKS WORKFLOW ORCHESTRATION                              |
+|   • Reads Metadata Config    • Manages Task Dependencies     • Handles Parallel Execution   |
++-------+--------------------------------------+---------------------------------------+------+
+        |                                      |                                       |
+        v                                      v                                       v
++-----------------------+            +-----------------------+               +-----------------------+
+|  [3] SECURE           |            |  [4] DATA SOURCE      |               |  [6] AZURE DATABRICKS |
+|      CONNECTIVITY     |            |      CONNECTOR        |               |      INGESTION ENGINE |
+| • Key Vault Secrets   |            | • JDBC/ODBC Templates |               | • Parameterized Logs  |
+| • Entra ID / VNets    |            | • HTTP/REST Hooks     |               | • Auto Loader Storage |
+| • Private Endpoints   |            | • Event Hub Streaming |               | • Schema Detection    |
++-------+-----------------------+            +-------+---------------+               +-------+---------------+
+        |                                      |                                       |
+        +--------------------------------------+---------------------------------------+
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                               [7] CHANGE DATA CAPTURE (CDC)                                 |
+|         • Native CDC Ingestion     • Watermark Tracking     • Delta MERGE Operations        |
++----------------------------------------------+----------------------------------------------+
+                                               |
+                                               v
+===============================================================================================
+                        DATA PROCESSING LAYERS (DELTA LAKE ARCHITECTURE)
+===============================================================================================
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                                [8] LANDING ZONE (BRONZE LAYER)                              |
+|             • Raw, Immutable Source Format      • Appended Ingestion Operational Metadata   |
++----------------------------------------------+----------------------------------------------+
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                          [9] AUTOMATED SCHEMA MANAGEMENT FRAMEWORK                          |
+|         • Schema Drift Detection      • Schema Evolution      • Incompatibility Flags       |
++----------------------------------------------+----------------------------------------------+
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                             [10] DATA QUALITY VALIDATION ENGINE                             |
+|       • Configurable Quality Rules   • Source-Target Reconciliation   • Quarantine Tables   |
++----------------------------------------------+----------------------------------------------+
+                                               |
+                +------------------------------+------------------------------+
+                |                                                             |
+                v                                                             v
++-----------------------------------------------+             +-------------------------------+
+|            BRONZE LAYER PROCESSING            |             | SOURCE-ALIGNED SILVER processing|
+|  • Raw ingestion & immutable historical storage|             | • Cleansing & standardization |
++-----------------------+-----------------------+             +---------------+---------------+
+                        |                                                     |
+                        +------------------------------+----------------------+
+                                                       |
+                                                       v
++---------------------------------------------------------------------------------------------+
+|                                 UNIFIED SILVER PROCESSING                                   |
+|          • Cross-Source Harmonization    • Canonical Model    • Entity Consolidation         |
++----------------------------------------------+----------------------------------------------+
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                                     GOLD LAYER PROCESSING                                   |
+|              • Dimensional Models (Star/Snowflake)     • Aggregated KPIs & Metrics          |
++==============================================+==============================================+
+                                               |
+                                               v
++---------------------------------------------------------------------------------------------+
+|                        CROSS-CUTTING GOVERNANCE, SECURITY & OPERATIONS                      |
+|                                                                                             |
+|   +---------------------------------------+     +---------------------------------------+   |
+|   |  [11/12] UNITY CATALOG INTEGRATION    |     |  [13] MONITORING & DASHBOARD          |   |
+|   |  • Fine-Grained Access Control        |     |  • Real-Time Performance Visuals      |   |
+|   |  • Technical Metadata & Data Lineage  |     |  • Operational Metric Tracking        |   |
+|   +---------------------------------------+     +---------------------------------------+   |
+|   |  [14/15] LOGGING, AUDIT & RECOVERY    |     |  [16] DEVSECOPS & CI/CD PIPELINES     |   |
+|   |  • Centralized Audit Logs             |     |  • Automated Multi-Env Deployment     |   |
+|   |  • Failover Checkpoint Recovery       |     |  • Version Control & Testing          |   |
+|   +---------------------------------------+     +---------------------------------------+   |
++---------------------------------------------------------------------------------------------+
+
+```
